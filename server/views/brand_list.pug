@@ -1,0 +1,17 @@
+extends layout 
+
+block content
+  #index-data-container.flex.flex-col.gap-10
+    #index-category-list
+      h1.text-blue-500.text-3xl.font-bold=title
+      ul.mt-10
+        each brand in brands 
+          li.mb-4 
+            h3.text-2xl.text-gray-400.font-bold=brand.name
+            .items-container.flex.gap-4
+              each item in items 
+                if item.brand 
+                  if item.brand.name===brand.name 
+                    a(href=item.url)  
+                      .item-container.w-60.h-32.bg-gray-50.flex.flex-col.justify-center.items-center.p-2.drop-shadow-sm.rounded-md
+                        p.font-bold #{item.name}

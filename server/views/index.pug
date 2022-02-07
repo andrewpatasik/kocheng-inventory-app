@@ -1,0 +1,70 @@
+extends layout 
+
+block content
+  #index-data-container.flex.flex-col.gap-10
+    #index-item-list
+      h3.text-blue-600.text-1xl.font-bold='Available Items'
+      - var lastIndex=items.length;
+      ul.flex.gap-4
+        each item, index in items 
+          if index!=lastIndex - 1
+            li.w-64.h-32.rounded.bg-gray-50.drop-shadow-sm.flex.flex-col.p-2
+              p.font-bold.flex-1=item.name
+              #item-detail.w-full.flex.justify-between
+                p='Qty: ' + item.number_in_stock 
+                p.font-bold='$' + item.price + '.00'
+          else 
+            li.w-64.h-32.rounded.bg-gray-50.drop-shadow-sm.flex.flex-col.p-2
+              p.font-bold.flex-1=item.name
+              #item-detail.w-full.flex.justify-between
+                p='Qty: ' + item.number_in_stock 
+                p.font-bold='$' + item.price + '.00'
+            li.flex.flex-col.justify-center.items-center.p-2
+              a.text-blue-500.flex.items-center(href="/") 
+                p.pr-1='See All Items'
+                i.fas.fa-angle-double-right
+    #index-category-list
+      h3.text-blue-600.text-1xl.font-bold='List of Categories'
+      - var lastIndex=categories.length;
+      ul.flex.gap-4
+        each category, index in categories 
+          if index!=lastIndex - 1
+            li.w-64.h-32.rounded.bg-gray-50.drop-shadow-sm.flex.flex-col.justify-center.items-center.p-2
+              p.font-bold=category.name
+          else 
+            li.w-64.h-32.rounded.bg-gray-50.drop-shadow-sm.flex.flex-col.justify-center.items-center.p-2
+              p.font-bold=category.name
+            li.flex.flex-col.justify-center.items-center.p-2
+              a.text-blue-500.flex.items-center(href="/") 
+                p.pr-1='See All Categories'
+                i.fas.fa-angle-double-right
+    #index-animaltype-list
+      h3.text-blue-600.text-1xl.font-bold='List of Animal Types'
+      - var lastIndex=animaltypes.length;
+      ul.flex.gap-4
+        each type, index in animaltypes 
+          if index!=lastIndex - 1
+            li.w-64.h-32.rounded.bg-gray-50.drop-shadow-sm.flex.flex-col.justify-center.items-center.p-2
+              p.font-bold=type.name
+          else 
+            li.w-64.h-32.rounded.bg-gray-50.drop-shadow-sm.flex.flex-col.justify-center.items-center.p-2
+              p.font-bold=type.name
+            li.flex.flex-col.justify-center.items-center.p-2
+              a.text-blue-500.flex.items-center(href="/") 
+                p.pr-1='See All Animal Type'
+                i.fas.fa-angle-double-right
+    #index-brand-list
+      h3.text-blue-500.text-1xl.font-bold='List of Brands'
+      - var lastIndex=brands.length;
+      ul.flex.gap-4
+        each brand, index in brands 
+          if index!=lastIndex - 1
+            li.w-64.h-32.rounded.bg-gray-50.drop-shadow-sm.flex.flex-col.justify-center.items-center.p-2
+              p.font-bold=brand.name
+          else 
+            li.w-64.h-32.rounded.bg-gray-50.drop-shadow-sm.flex.flex-col.justify-center.items-center.p-2
+              p.font-bold=brand.name
+            li.flex.flex-col.justify-center.items-center.p-2
+              a.text-blue-500.flex.items-center(href="/") 
+                p.pr-1='See All Brands'
+                i.fas.fa-angle-double-right

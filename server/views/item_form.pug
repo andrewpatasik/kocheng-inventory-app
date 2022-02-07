@@ -1,0 +1,40 @@
+extends layout 
+
+block content
+  .page-container
+    h1.text-blue-500.text-3xl.font-bold=title
+    form(action="", method="post") 
+      .form-container.flex.flex-col.rounded-md.justify-evenly.gap-2.mt-8
+        .field-container
+          label.text-sm.font-bold(for="name") Name:
+          input#item-name.block.w-full.h-8.rounded-md.bg-yellow-50.px-2(type="text", name="item-name", placeholder="High protein cat food" required="true") 
+        .field-container
+          label.text-sm.font-bold(for="category") Category:
+          select#item-category.w-full.h-8.rounded-md.bg-yellow-50.px-2(type="select", name="item-category", placeholder="Food" required="true")
+            - categories.sort((a, b) => {let catA=a.name.toUpperCase(), catB=b.name.toUpperCase(); return (catA < catB) ? -1 : (catA > catB) ? 1 : 0 })
+            each category in categories 
+              option(value=category._id) #{category.name}
+        .field-container
+          label.text-sm.font-bold(for="brand") Brand:
+          select#item-brand.w-full.h-8.rounded-md.bg-yellow-50.px-2(type="select", name="item-brand", placeholder="Whiskash") 
+            - brands.sort((a, b) => {let brA=a.name.toUpperCase(), brB=b.name.toUpperCase(); return (brA < brB) ? -1 : (brA > brB) ? 1 : 0});
+            each brand in brands 
+              option(value=brand._id) #{brand.name}
+        .field-container
+          label.text-sm.font-bold(for="animal-type") Animal Type:
+          select#item-animaltype.w-full.h-8.rounded-md.bg-yellow-50.px-2(type="select", name="item-animaltype", placeholder="Cat" required="true")
+            - animaltypes.sort((a, b) => {let aniA=a.name.toUpperCase(), aniB=b.name.toUpperCase(); return (aniA < aniB) ? -1 : (aniA > aniB) ? 1 : 0})
+            each types in animaltypes 
+              option(value=types._id) #{types.name}
+        .num-field-container.flex.gap-2
+          .field-container
+            label.text-sm.font-bold(for="price") Price:
+            input#item-price.w-full.h-8.rounded-md.bg-yellow-50.px-2(type="number", name="item-price", min=0,  placeholder="$10" required="true") 
+          .field-container
+            label.text-sm.font-bold(for="stock") Stock:
+            input#item-stock.w-full.h-8.rounded-md.bg-yellow-50.px-2(type="number", name="item-stock", min=0,  placeholder="8" required="true") 
+        .field-container
+          label.text-sm.font-bold(for="description") Description:
+          textarea#item-description.block.w-full.bg-yellow-50.p-2(type='textarea', name='item-description', rows=5)
+        .button-container.flex.justify-end
+          button.w-24.bg-blue-500.p-2.rounded-md.font-bold.text-white.drop-shadow.sm(type="submit") Submit

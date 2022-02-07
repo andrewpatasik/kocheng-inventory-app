@@ -1,0 +1,20 @@
+extends layout 
+
+block content
+  #index-data-container.flex.flex-col.gap-10
+    #index-item-list
+      h1.text-blue-500.text-3xl.font-bold=title
+      ul.flex.gap-4.mt-10
+        each item in items 
+          li
+            a(href=item.url) 
+             .w-64.h-32.rounded.bg-gray-50.drop-shadow-sm.flex.flex-col.p-2 
+                p.font-bold.flex-1=item.name
+                #item-detail.w-full.flex.justify-between
+                  p='Qty: ' + item.number_in_stock 
+                  p.font-bold='$' + item.price + '.00'
+        li
+            a(href='/catalog/item/create') 
+             .w-64.h-32.border-2.border-dashed.rounded.bg-gray-50.drop-shadow-sm.flex.flex-col.p-2.justify-center.items-center.text-blue-500
+                i.fas.fa-plus.text-lg
+                p.font-bold='ADD NEW ITEM'

@@ -1,0 +1,40 @@
+doctype html
+html
+  head
+    title= 'Kocheng | ' + title
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/d0d73e6caa.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body 
+    #container.flex.gap-8
+      block sidebar
+        #navigation-bar.w-48
+          h3.font-bold.text-2xl.text-blue-500='Kocheng'
+          ul.flex.flex-col.gap-4.text-sm.mt-12
+            li 
+              a(href="/") 
+                #link-container.flex.justify-center.items-center.w-32.bg-yellow-100.rounded-lg.p-2.gap-1
+                  p Home
+            li 
+              a(href="/catalog/items") 
+                #link-container.flex.justify-center.items-center.w-32.bg-yellow-100.rounded-lg.p-2.gap-1
+                  p Items 
+            li 
+              a(href="/catalog/categories") 
+                #link-container.flex.justify-center.items-center.w-32.bg-yellow-100.rounded-lg.p-2.gap-1
+                  p Categories 
+            li 
+              a(href="/catalog/brands") 
+                #link-container.flex.justify-center.items-center.w-32.bg-yellow-100.rounded-lg.p-2.gap-1
+                  p Brands 
+            li 
+              a(href="/catalog/animaltypes") 
+                #link-container.flex.justify-center.items-center.w-32.bg-yellow-100.rounded-lg.p-2.gap-1
+                  p Animal Types   
+            hr
+      block content 
